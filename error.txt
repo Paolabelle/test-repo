@@ -1,0 +1,40 @@
+Directory of C:\Users\Bu\Desktop\python_etl
+
+08/08/2018  02:19 PM    <DIR>          .
+08/08/2018  02:19 PM    <DIR>          ..
+08/08/2018  02:24 PM               360 db_credentials.py
+08/08/2018  04:32 PM             1,206 etl.py
+08/08/2018  03:52 PM               831 main.py
+08/08/2018  02:08 PM               688 sql_queries.py
+08/08/2018  04:03 PM                32 variables.py
+08/08/2018  04:32 PM    <DIR>          __pycache__
+               5 File(s)          3,117 bytes
+               3 Dir(s)  320,141,422,592 bytes free
+
+C:\Users\Bu\Desktop\python_etl>python main.py
+Traceback (most recent call last):
+  File "C:\Users\Bu\AppData\Local\Programs\Python\Python36\lib\site-packages\mys
+ql\connector\cursor_cext.py", line 315, in _batch_insert
+    "Not all parameters were used in the SQL statement")
+mysql.connector.errors.ProgrammingError: Not all parameters were used in the SQL
+ statement
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 28, in <module>
+    etl_process(mysql_queries, target_cnx, source_db_config, 'mysql')
+  File "C:\Users\Bu\Desktop\python_etl\etl.py", line 37, in etl_process
+    etl(query, source_cnx, target_cnx)
+  File "C:\Users\Bu\Desktop\python_etl\etl.py", line 18, in etl
+    target_cursor.executemany(query.load_query, data)
+  File "C:\Users\Bu\AppData\Local\Programs\Python\Python36\lib\site-packages\mys
+ql\connector\cursor_cext.py", line 348, in executemany
+    stmt = self._batch_insert(operation, seq_params)
+  File "C:\Users\Bu\AppData\Local\Programs\Python\Python36\lib\site-packages\mys
+ql\connector\cursor_cext.py", line 327, in _batch_insert
+    "Failed executing the operation; %s" % err)
+mysql.connector.errors.InterfaceError: Failed executing the operation; Not all p
+arameters were used in the SQL statement
+
+C:\Users\Bu\Desktop\python_etl>
