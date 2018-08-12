@@ -1,0 +1,30 @@
+C:\Users\Bu\Desktop\python_etl>python main.py
+loading db: classicmodels
+etl for classicmodels has error
+error message: name 'target_cnx' is not defined
+starting etl
+Traceback (most recent call last):
+  File "main.py", line 56, in <module>
+    main()
+  File "main.py", line 19, in main
+    target_cnx = mysql.connector.connect(**datawarehouse_db_config)
+TypeError: connect() argument after ** must be a mapping, not list
+
+C:\Users\Bu\Desktop\python_etl>
+
+### IF I REMOVE (**)
+
+C:\Users\Bu\Desktop\python_etl>python main.py
+loading db: classicmodels
+etl for classicmodels has error
+error message: name 'target_cnx' is not defined
+starting etl
+Traceback (most recent call last):
+  File "main.py", line 56, in <module>
+    main()
+  File "main.py", line 19, in main
+    target_cnx = mysql.connector.connect(datawarehouse_db_config)
+  File "C:\Users\Bu\AppData\Local\Programs\Python\Python36\lib\site-packages\mys
+ql\connector\__init__.py", line 172, in connect
+    return CMySQLConnection(*args, **kwargs)
+TypeError: __init__() takes 1 positional argument but 2 were given
